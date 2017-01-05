@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-var ngModule = angular.module('angular-utils.scroll', [
+var ngModule = angular.module('angular-utilities.scroll', [
 	require('../performance/index')
 ]);
 

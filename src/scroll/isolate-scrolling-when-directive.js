@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name angular-utils.scroll.directive:isolateScrollingWhen
+ * @name angular-utilities.scroll.directive:isolateScrollingWhen
  * @restrict A
  * @scope
  *
@@ -92,7 +92,7 @@
  </file>
  <file name="demo.js">
 
- angular.module('isolate-scrolling-example', ['angular-utils.scroll'])
+ angular.module('isolate-scrolling-example', ['angular-utilities.scroll'])
  .directive('exampleDirective', [function() {
         return {
 			restrict: 'A',
@@ -119,7 +119,7 @@
 var _ = require('underscore');
 
 // @ngInject
-module.exports = function($timeout, AngularUtilities) {
+module.exports = function($timeout, WatchUtilities) {
 	return {
 		restrict: 'A',
 		link: function (scope, element, attrs) {
@@ -163,7 +163,7 @@ module.exports = function($timeout, AngularUtilities) {
 				return result;
 			};
 
-			AngularUtilities.watchIndependently(scope, attrs.isolateScrollingWhen, function(value) {
+			WatchUtilities.watchIndependently(scope, attrs.isolateScrollingWhen, function(value) {
 				if (value) {
 					$timeout(function() {
 						element.bind('mousewheel', mainBehaviour);

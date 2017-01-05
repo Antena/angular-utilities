@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc filter
- * @name angular-utils.misc.filter:trusted
+ * @name angular-utilities.misc.filter:trusted
  * @kind function
  *
  * @description

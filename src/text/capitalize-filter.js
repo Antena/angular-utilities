@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc filter
- * @name angular-utils.text.filter:capitalize
+ * @name angular-utilities.text.filter:capitalize
  * @kind function
  *
  * @description
@@ -16,7 +16,7 @@
  *
  *
  * @example
- <example module="angular-utils.text">
+ <example module="angular-utilities.text">
  <file name="index.html">
  <p>Capitalize with default options:
  <strong>{{ 'The quick brown fox jumps over the lazy dog' | capitalize }}</strong>

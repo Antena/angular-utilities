@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc filter
- * @name angular-utils.text.filter:semicolon
+ * @name angular-utilities.text.filter:semicolon
  * @kind function
  *
  * @description
@@ -17,7 +17,7 @@
  *
  *
  * @example
- <example module="angular-utils.text">
+ <example module="angular-utilities.text">
  <file name="index.html">
  <p>{{ 'The quick brown fox jumps over the lazy dog' | semicolon }}</p>
  </file>

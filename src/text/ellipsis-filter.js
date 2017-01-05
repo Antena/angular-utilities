@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc filter
- * @name angular-utils.text.filter:ellipsis
+ * @name angular-utilities.text.filter:ellipsis
  * @kind function
  *
  * @description
@@ -14,7 +14,7 @@
  *
  *
  * @example
- <example module="angular-utils.text">
+ <example module="angular-utilities.text">
  <file name="index.html">
  <p>Adds an ellipsis:
  <strong>{{ 'The quick brown fox jumps over the lazy dog' | ellipsis }}</strong>

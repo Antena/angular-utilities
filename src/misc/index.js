@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-var ngModule = angular.module('angular-utils.misc', [ ]);
+var ngModule = angular.module('angular-utilities.misc', [ ]);
 
 ngModule.filter('trusted', require('./trusted-filter'));
 

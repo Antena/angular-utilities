@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name angular-utils.performance.factory:AngularUtilities
+ * @name angular-utilities.performance.factory:WatchUtilities
  * @kind function
  *
  * @description
@@ -20,7 +20,7 @@ module.exports = function($parse) {
 		/**
 		 * @ngdoc function
 		 * @name watchIndependently
-		 * @methodOf angular-utils.performance.factory:AngularUtilities
+		 * @methodOf angular-utilities.performance.factory:WatchUtilities
 		 * @description
 		 *
 		 * Registers a listener callback to be executed whenever the watchExpression changes, but without
@@ -36,17 +36,16 @@ module.exports = function($parse) {
 		 * @example
 		 *
 		 * ```js
-		 *  AngularUtilities.watchIndependently(scope, attrs.onCondition, function(value) {
-		 *  	// value changed, and no digest cycle was harmed during the making of function ;)
+		 *  WatchUtilities.watchIndependently(scope, attrs.onCondition, function(value) {
+		 *  	// value changed!
+		 *  	// no digest cycle was harmed in the making of this demo ;)
 		 *  });
 		 * ```
 		 */
 		watchIndependently: function watchIndependently(scope, watchExpression, listener) {
 
-			// use a constant for invoking the handler the first time (with value === oldValue).
-			var previous = INITIAL_VALUE,
-				// pre-parse the expression for better performance
-				expr = $parse(watchExpression);
+			var previous = INITIAL_VALUE,		// use a constant for invoking the handler the first time (with value === oldValue).
+				expr = $parse(watchExpression);	// pre-parse the expression for better performance
 
 			return scope.$watch(function() {
 				var value = expr(scope);
@@ -55,7 +54,6 @@ module.exports = function($parse) {
 					listener(value, (previous === INITIAL_VALUE) ? value : previous, scope);
 					previous = value;
 				}
-				// always return undefined
 			});
 		}
 	};

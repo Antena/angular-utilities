@@ -1,2 +1,2 @@
-# angular-utils
-Collection of general purpose angular utilities.
+# angular-utilities
+Collection of general purpose angular (1.x) utilities.

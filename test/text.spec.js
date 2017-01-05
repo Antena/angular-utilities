@@ -1,9 +1,9 @@
 'use strict';
 
 /*jshint expr: true*/
-describe('angular-utils.text', function() {
+describe('angular-utilities.text', function() {
 
-	beforeEach(angular.mock.module('angular-utils.text'));
+	beforeEach(angular.mock.module('angular-utilities.text'));
 
 	var _$filter_;
 

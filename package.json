@@ -1,5 +1,5 @@
 {
-  "name": "angular-utils",
+  "name": "angular-utilities",
   "version": "0.0.1",
   "description": "Collection of general purpose angular utilities.",
   "keywords": [
@@ -9,13 +9,13 @@
     "filters"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Antena/angular-utils",
+  "homepage": "https://github.com/Antena/angular-utilities",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Antena/angular-utils"
+    "url": "https://github.com/Antena/angular-utilities"
   },
   "bugs": {
-    "url": "https://github.com/Antena/angular-utils/issues"
+    "url": "https://github.com/Antena/angular-utilities/issues"
   },
   "author": {
     "name": "Denise Fernandez",
