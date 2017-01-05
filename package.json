@@ -1,7 +1,7 @@
 {
   "name": "angular-utilities",
   "version": "0.0.2",
-  "description": "Collection of general purpose angular utilities.",
+  "description": "Collection of general purpose angular (v 1.x) utilities.",
   "keywords": [
     "angular",
     "util",
@@ -47,7 +47,6 @@
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-webpack": "^1.7.0",
     "mocha": "^3.0.1",
-    "prismjs": "^1.5.1",
     "webpack": "^1.13.1"
   },
   "scripts": {
@@ -60,7 +59,6 @@
   },
   "dependencies": {
     "angular": "~1.4.x",
-    "fhir-utils": "0.0.2",
     "jquery": "^1.11.1",
     "underscore": "^1.8.3"
   }

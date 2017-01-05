@@ -9,12 +9,9 @@ module.exports = function(grunt) {
 				dest: 'docs',
 				scripts: [
 					'dist/bundle.js',
-					'node_modules/angular-animate/angular-animate.min.js',
-					'node_modules/prismjs/prism.js'
+					'node_modules/angular-animate/angular-animate.min.js'
 				],
-				styles: [
-					'node_modules/prismjs/themes/prism-okaidia.css'
-				],
+				styles: [ ],
 				html5Mode: false,
 				editExample: false
 			},
