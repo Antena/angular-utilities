@@ -17,7 +17,6 @@ npm-debug.log
 # build and temp folders
 dist
 .tmp
-docs
 
 # IntelliJ files
 *.iml

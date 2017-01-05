@@ -1,0 +1,131 @@
+<a href="https://github.com/Antena/angular-utilities/edit/master/src/scroll/isolate-scrolling-when-directive.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/Antena/angular-utilities/blob/ce46d91/src/scroll/isolate-scrolling-when-directive.js#L118" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">isolateScrollingWhen</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">angular-utilities.scroll</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="angular-utilities-scroll-directive-page angular-utilities-scroll-directive-isolatescrollingwhen-page"><p>Isolates the scrolling event within this directive&#39;s element on a given condition.
+This can be used to avoid scroll events from reaching the $document.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY isolate-scrolling-when="{String|Function}"&gt;
+   ...
+&lt;/ANY&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>isolateScrollingWhen</td><td><a href="" class="label type-hint type-hint-string">String</a><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="angular-utilities-scroll-directive-page angular-utilities-scroll-directive-isolatescrollingwhen-page"><p>Angular expression to watch for. When this expression evaluates
+to truthy, the scroll event will be isolated within this directive&#39;s element. When it evaluates to falsy,
+the default event bubbling is restored.</p>
+<div id="fixedTree" class="lab-tree" isolate-scrolling-when="treeIsFixed"></div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="angular-utilities-scroll-directive-page angular-utilities-scroll-directive-isolatescrollingwhen-page"><h4 id="example_source">Source</h4>
+<div source-edit="isolate-scrolling-example" source-edit-deps="angular.js demo.js" source-edit-html="index.html" source-edit-css="main.css styles.css" source-edit-js="demo.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="isolate-scrolling-example angular.js demo.js"></pre>
+<script type="text/ng-template" id="index.html">
+
+<div example-directive class="example">
+
+	 <h4 id="example_how-to-test">How to test:</h4>
+	 <h6 id="example_how-to-test_scroll-within-the-yellow-box-keep-scrolling-after-reaching-end/beginning-of-content-dont-move-mouse-outside-the-box">Scroll within the yellow box. Keep scrolling after reaching end/beginning of content. Don't move mouse outside the box.</h6>
+	 <h6 id="example_how-to-test_expected-behaviour">Expected behaviour:</h6>
+    <ul>
+		<li>When checkbox is <strong>unchecked</strong>, after end/beginning of content is reached, the main window will start scrolling.</li>
+		<li>When checkbox is <strong>checked</strong>, after end/beginning of content is reached, the main window never scroll.</li>
+ 	 </ul>
+
+	 <div class="form-inline demo-controls">
+		<label>
+			<input type="checkbox" ng-model="vm.doIsolate" class="form-control">
+			Enable scrolling isolation for the container below
+		</label>
+	 <label>
+		Scroll events received by window:
+			<input type="text" ng-model="vm.documentScrollCount" readonly class="form-control">
+	 </label>
+	 </div>
+
+ <div class="demo-container" isolate-scrolling-when="vm.doIsolate">
+		<p>
+	 Hodor! Hodor hodor, hodor hodor hodor. Hodor hodor - hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor hodor HODOR! Hodor hodor hodor. Hodor. Hodor hodor HODOR! Hodor hodor; hodor hodor?!
+		 Hodor hodor HODOR! Hodor HODOR hodor, hodor hodor hodor hodor - hodor. Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor HODOR hodor, hodor hodor hodor... Hodor hodor hodor?
+
+	 Hodor, hodor. Hodor. Hodor, hodor... Hodor hodor hodor... Hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor?! Hodor hodor - HODOR hodor, hodor hodor; hodor hodor; hodor hodor?! Hodor. Hodor hodor...
+  		 Hodor hodor hodor; hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor hodor HODOR! Hodor hodor hodor hodor hodor hodor!
+
+	 Hodor! Hodor hodor, hodor hodor hodor?! Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor hodor; hodor hodor, hodor, hodor hodor. Hodor hodor - HODOR hodor, hodor hodor hodor hodor. Hodor HODOR hodor,
+		 hodor hodor; hodor hodor, hodor, hodor hodor. Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor. Hodor hodor - hodor, hodor. Hodor HODOR hodor, hodor hodor? Hodor, hodor. Hodor. Hodor, hodor... Hodor hodor hodor -
+		 hodor; hodor hodor. Hodor! Hodor hodor, hodor hodor, hodor. Hodor hodor... Hodor hodor hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor, hodor. Hodor hodor... Hodor hodor hodor?!
+		</p>
+	 </div>
+
+
+</div>
+
+</script>
+</div>
+<div class="tab-pane" title="main.css">
+<pre class="prettyprint linenums" ng-set-text="main.css"></pre>
+<style type="text/css" id="main.css">
+
+.demo-container {
+	max-height: 250px;
+	background-color: #FFF492;
+	border: 1px solid #FFF057;
+	padding: 10px;
+	overflow-y: scroll;
+}
+
+.demo-controls {
+	background-color: #D5F5FF;
+	border: 1px solid #BFE3FF;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+</style>
+</div>
+<div class="tab-pane" title="styles.css">
+<pre class="prettyprint linenums" ng-set-text="styles.css"></pre>
+<style type="text/css" id="styles.css">
+
+.example .value-within-range-card .bad {
+		color: #C0334E;
+	}
+.example .value-within-range-card .good {
+		color: #00b752;
+	}
+
+</style>
+</div>
+<div class="tab-pane" title="demo.js">
+<pre class="prettyprint linenums" ng-set-text="demo.js"></pre>
+<script type="text/ng-template" id="demo.js">
+
+angular.module('isolate-scrolling-example', ['angular-utilities.scroll'])
+.directive('exampleDirective', [function() {
+       return {
+		restrict: 'A',
+		link: function ($scope) {
+				$scope.vm = {
+					documentScrollCount: 0,
+					doIsolate: false
+				};
+
+				$(window).scroll(function() {
+					$scope.$apply(function() {
+						$scope.vm.documentScrollCount++;
+					});
+				});
+		}
+	};
+}]);
+
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="isolate-scrolling-example" ng-set-html="index.html" ng-eval-javascript="demo.js"></div>
+</div></div>
+</div>
