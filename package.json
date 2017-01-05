@@ -1,0 +1,67 @@
+{
+  "name": "angular-utils",
+  "version": "0.0.0",
+  "description": "Collection of general purpose angular utilities.",
+  "keywords": [
+    "angular",
+    "util",
+    "helper",
+    "filters"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Antena/angular-utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Antena/angular-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/Antena/angular-utils/issues"
+  },
+  "author": {
+    "name": "Denise Fernandez",
+    "email": "denise@antena.co",
+    "url": "https://github.com/Antena"
+  },
+  "maintainers": [
+    "Denise Fernandez <denise@antena.co>",
+    "Gonzalo Bellver <gonzalo@antena.co>"
+  ],
+  "main": "src/index.js",
+  "devDependencies": {
+    "angular-animate": "~1.4.x",
+    "angular-mocks": "1.5.0",
+    "chai": "^3.5.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-ngdocs": "~0.2.10",
+    "jscs": "^3.0.7",
+    "jscs-stylish": "^0.3.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "karma": "^1.1.2",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-cli": "^1.0.1",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^3.0.1",
+    "prismjs": "^1.5.1",
+    "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
+    "test": "karma start",
+    "docs": "webpack && grunt docs"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "angular": "~1.4.x",
+    "fhir-utils": "0.0.2",
+    "jquery": "^1.11.1",
+    "underscore": "^1.8.3"
+  }
+}
