@@ -56,6 +56,15 @@ NG_DOCS={
       "moduleName": "angular-utilities.text",
       "shortDescription": "Adds a semicolon at the end of the given string.",
       "keywords": "add adds angular-utilities api brown dog filter filters fox function generic html input jumps lazy module puntuation quick semicolon string strings text transformed translatable translations"
+    },
+    {
+      "section": "api",
+      "id": "angular-utilities.text.filter:toClassName",
+      "shortName": "toClassName",
+      "type": "filter",
+      "moduleName": "angular-utilities.text",
+      "shortDescription": "Converts a string into a valid className.",
+      "keywords": "_zz_ a-z angular-utilities api asd balloons char characters chars classname converted converts filter function html input invalid module optional prefix red replacement replcement result sample-- string text toclassname transformed valid"
     }
   ],
   "apis": {
@@ -66,7 +75,6 @@ NG_DOCS={
   "startPage": "/api",
   "scripts": [
     "bundle.js",
-    "angular-animate.min.js",
-    "prism.js"
+    "angular-animate.min.js"
   ]
 };
