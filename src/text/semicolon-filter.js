@@ -6,7 +6,7 @@
  * @kind function
  *
  * @description
- *   Adds a semicolon at the end of the given string.
+ *   Adds a semicolon and a space at the end of the given string.
  *
  *   This filter is mostly useful for translations. This way you can have your translatable strings be as generic as
  *   possible, and then add puntuation via filters.

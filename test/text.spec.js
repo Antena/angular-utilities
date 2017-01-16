@@ -54,11 +54,46 @@ describe('angular-utilities.text', function() {
 	describe('semicolon filter', function() {
 
 		it("should add semicolon to single word", function() {
-			expect(_$filter_('semicolon')('Hello')).to.be.equal('Hello:');
+			expect(_$filter_('semicolon')('Hello')).to.be.equal('Hello: ');
 		});
 
 		it("should add semicolon to multiple words", function() {
-			expect(_$filter_('semicolon')('Hello World')).to.be.equal('Hello World:');
+			expect(_$filter_('semicolon')('Hello World')).to.be.equal('Hello World: ');
+		});
+	});
+
+	describe('toClassName filter', function() {
+		it("should replace invalid characters", function() {
+			expect(_$filter_('toClassName')('a.88%bb 9 $ asd')).to.be.equal('a_88_bb_9___asd');
+		});
+
+		it("should replace invalid characters, but keep valid", function() {
+			expect(_$filter_('toClassName')('a.9-123')).to.be.equal('a_9-123');
+		});
+
+		it("should add prefix if provided", function() {
+			expect(_$filter_('toClassName')('a.9', 'hello--')).to.be.equal('hello--a_9');
+		});
+
+		it("should use fail if prefix is invalid", function() {
+			expect(function() {
+				return _$filter_('toClassName')('a.9', '%');
+			}).to.throw('Invalid prefix. String has to have valid chars for css className.');
+		});
+
+		it("should use provided replacement", function() {
+			expect(_$filter_('toClassName')('a.9', '', '_z_')).to.be.equal('a_z_9');
+			expect(_$filter_('toClassName')('9aaa.bbb', 'hello--', '-')).to.be.equal('hello--9aaa-bbb');
+		});
+
+		it("should use provided replacement, except for 1st char, if invalid", function() {
+			expect(_$filter_('toClassName')('9aaa.bbb', '', '-')).to.be.equal('_9aaa-bbb');
+		});
+
+		it("should use fail if replacement is invalid", function() {
+			expect(function() {
+				return _$filter_('toClassName')('a.9', '', '%');
+			}).to.throw('Invalid replacement. String has to have valid chars for css className.');
 		});
 	});
 });

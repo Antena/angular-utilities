@@ -42,23 +42,24 @@
 // @ngInject
 module.exports = function() {
 
+	var rx = /^[_a-zA-Z]+[_a-zA-Z0-9-]+$/;	//valid class names
+
 	return function sanitizeCodeForClassName(input, prefix, replacement) {
 		var result;
 		prefix = prefix || '';
-		if(prefix && /^[0-9-]/.test(prefix.charAt(0))) {
-			throw new Error("Invalid prefix. String cannot start with numbers or a dash.");
+		if(prefix && !rx.test(prefix)) {
+			throw new Error("Invalid prefix. String has to have valid chars for css className.");
 		}
 
 		replacement = replacement || '_';
-		if(replacement && /[^_a-zA-Z0-9-]/.test(prefix.charAt(0))) {
+		if(replacement && /[^_a-zA-Z0-9-]+$/.test(replacement)) {
 			throw new Error("Invalid replacement. String has to have valid chars for css className.");
 		}
 
-		var rx = /^[_a-zA-Z]+[_a-zA-Z0-9-]+$/;	//valid class names
 		if(rx.test(input)) {
 			result = input;
 		} else {
-			result = input.replace(/[^_A-Za-z0-9]/g, replacement);
+			result = input.replace(/[^_A-Za-z0-9-]/g, replacement);
 
 			if(!prefix && /^[0-9-]/.test(result.charAt(0))) {
 				var validPrefix = /^[0-9-]/.test(replacement.charAt(0)) ? '_' : replacement;
