@@ -75,7 +75,7 @@
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.4.12
+	 * @license AngularJS v1.4.14
 	 * (c) 2010-2015 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -133,7 +133,7 @@
 	      return match;
 	    });
 
-	    message += '\nhttp://errors.angularjs.org/1.4.12/' +
+	    message += '\nhttp://errors.angularjs.org/1.4.14/' +
 	      (module ? module + '/' : '') + code;
 
 	    for (i = SKIP_INDEXES, paramPrefix = '?'; i < templateArgs.length; i++, paramPrefix = '&') {
@@ -2493,11 +2493,11 @@
 	 * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
 	 */
 	var version = {
-	  full: '1.4.12',    // all of these placeholder strings will be replaced by grunt's
+	  full: '1.4.14',    // all of these placeholder strings will be replaced by grunt's
 	  major: 1,    // package task
 	  minor: 4,
-	  dot: 12,
-	  codeName: 'cultural-conservation'
+	  dot: 14,
+	  codeName: 'material-distinction'
 	};
 
 
@@ -8090,13 +8090,17 @@
 	      var nodeType = node.nodeType,
 	          attrsMap = attrs.$attr,
 	          match,
+	          nodeName,
 	          className;
 
 	      switch (nodeType) {
 	        case NODE_TYPE_ELEMENT: /* Element */
+
+	          nodeName = nodeName_(node);
+
 	          // use the node name: <directive>
 	          addDirective(directives,
-	              directiveNormalize(nodeName_(node)), 'E', maxPriority, ignoreDirective);
+	              directiveNormalize(nodeName), 'E', maxPriority, ignoreDirective);
 
 	          // iterate over the attributes
 	          for (var attr, name, nName, ngAttrName, value, isNgAttr, nAttrs = node.attributes,
@@ -8135,6 +8139,12 @@
 	            addAttrInterpolateDirective(node, directives, value, nName, isNgAttr);
 	            addDirective(directives, nName, 'A', maxPriority, ignoreDirective, attrStartName,
 	                          attrEndName);
+	          }
+
+	          if (nodeName === 'input' && node.getAttribute('type') === 'hidden') {
+	            // Hidden input elements can have strange behaviour when navigating back to the page
+	            // This tells the browser not to try to cache and reinstate previous values
+	            node.setAttribute('autocomplete', 'off');
 	          }
 
 	          // use class as directive
@@ -45795,7 +45805,7 @@
 	 * @kind function
 	 *
 	 * @description
-	 *   Adds a semicolon at the end of the given string.
+	 *   Adds a semicolon and a space at the end of the given string.
 	 *
 	 *   This filter is mostly useful for translations. This way you can have your translatable strings be as generic as
 	 *   possible, and then add puntuation via filters.
@@ -45870,23 +45880,24 @@
 	// @ngInject
 	module.exports = function() {
 
+		var rx = /^[_a-zA-Z]+[_a-zA-Z0-9-]+$/;	//valid class names
+
 		return function sanitizeCodeForClassName(input, prefix, replacement) {
 			var result;
 			prefix = prefix || '';
-			if(prefix && /^[0-9-]/.test(prefix.charAt(0))) {
-				throw new Error("Invalid prefix. String cannot start with numbers or a dash.");
+			if(prefix && !rx.test(prefix)) {
+				throw new Error("Invalid prefix. String has to have valid chars for css className.");
 			}
 
 			replacement = replacement || '_';
-			if(replacement && /[^_a-zA-Z0-9-]/.test(prefix.charAt(0))) {
+			if(replacement && /[^_a-zA-Z0-9-]+$/.test(replacement)) {
 				throw new Error("Invalid replacement. String has to have valid chars for css className.");
 			}
 
-			var rx = /^[_a-zA-Z]+[_a-zA-Z0-9-]+$/;	//valid class names
 			if(rx.test(input)) {
 				result = input;
 			} else {
-				result = input.replace(/[^_A-Za-z0-9]/g, replacement);
+				result = input.replace(/[^_A-Za-z0-9-]/g, replacement);
 
 				if(!prefix && /^[0-9-]/.test(result.charAt(0))) {
 					var validPrefix = /^[0-9-]/.test(replacement.charAt(0)) ? '_' : replacement;

@@ -54,8 +54,8 @@ NG_DOCS={
       "shortName": "semicolon",
       "type": "filter",
       "moduleName": "angular-utilities.text",
-      "shortDescription": "Adds a semicolon at the end of the given string.",
-      "keywords": "add adds angular-utilities api brown dog filter filters fox function generic html input jumps lazy module puntuation quick semicolon string strings text transformed translatable translations"
+      "shortDescription": "Adds a semicolon and a space at the end of the given string.",
+      "keywords": "add adds angular-utilities api brown dog filter filters fox function generic html input jumps lazy module puntuation quick semicolon space string strings text transformed translatable translations"
     },
     {
       "section": "api",
